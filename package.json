@@ -1,0 +1,25 @@
+{
+  "name": "nodejs-opentelemetry",
+  "version": "1.0.0",
+  "description": "An example how OpenTelemetry used in Node.js",
+  "main": "app.js",
+  "repository": "https://github.com/rubiagatra/nodejs-opentelemetry",
+  "author": "Doni Rubiagatra <doni@zero-one-group.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "dev": "nodemon -r ./tracing.js app.js"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.11.10",
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "@opentelemetry/api": "^1.0.3",
+    "@opentelemetry/auto-instrumentations-node": "^0.26.2",
+    "@opentelemetry/exporter-zipkin": "^1.0.1",
+    "@opentelemetry/sdk-node": "^0.27.0",
+    "express": "^4.17.1"
+  }
+}
