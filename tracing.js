@@ -1,13 +1,13 @@
-/* tracing.js */
+"use strict";
 
-const opentelemetry = require("@opentelemetry/sdk-node");
+const { NodeTracerProvider } = require("@opentelemetry/node");
 const {
-  getNodeAutoInstrumentations,
-} = require("@opentelemetry/auto-instrumentations-node");
+  SimpleSpanProcessor,
+  ConsoleSpanExporter,
+} = require("@opentelemetry/tracing");
 
-const sdk = new opentelemetry.NodeSDK({
-  traceExporter: new opentelemetry.tracing.ConsoleSpanExporter(),
-  instrumentations: [getNodeAutoInstrumentations()],
-});
+const provider = new NodeTracerProvider({});
 
-sdk.start();
+provider.register();
+
+provider.addSpanProcessor(new SimpleSpanProcessor(new ConsoleSpanExporter()));
